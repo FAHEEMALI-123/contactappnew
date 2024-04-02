@@ -1,6 +1,12 @@
 import React from "react";
+import { IEmployee } from "./Employeetype.ts";
 
-const Tabler = () => {
+type props = {
+  details: IEmployee[];
+};
+
+const Tabler = (props: props) => {
+  const details = props.details;
   return (
     <div>
       <div className="overflow-x-auto">
@@ -8,7 +14,6 @@ const Tabler = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
               <th>Name</th>
               <th>Email</th>
               <th>Phone Number</th>
@@ -17,17 +22,21 @@ const Tabler = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>9567098709</td>
 
-              <td>
-                <button className="btn btn-success">Edit</button>
-                <button className="btn btn-warning">Delete</button>
-              </td>
-            </tr>
+            {details.map((employee) => {
+              return (
+                <tr key={employee.id}>
+                  <td>{employee.name}</td>
+                  <td>{employee.email}</td>
+                  <td>{employee.phone}</td>
+                  <td>
+                    <button className="btn btn-success">Edit</button>
+                    <button className="btn btn-warning">Delete</button>
+                  </td>
+                </tr>
+              );
+            })}
+            <tr></tr>
           </tbody>
         </table>
       </div>
