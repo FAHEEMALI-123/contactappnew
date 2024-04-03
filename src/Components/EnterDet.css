@@ -1,0 +1,11 @@
+.butt{
+justify-content:center;
+display:flex;
+align-items: center;
+column-gap:0.5rem;
+}
+
+.btn{
+    padding-top:5px;
+    margin-top:10px;
+}
